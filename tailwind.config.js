@@ -22,8 +22,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["Poppins", "sans-serif"],
-      serif: ["Lora", "serif"],
+      sans: ["Kumbh Sans", "sans-serif"],
     },
     fontSize: {
       base: ["1rem", "150%"],
