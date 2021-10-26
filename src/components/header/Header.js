@@ -12,7 +12,7 @@ export default function () {
         <a tw="hidden md:inline text-md">Portfolio</a>
       </ul>
       <ContactButton>Contact Me</ContactButton>
-      <Bars tw="md:hidden" />
+      <Bars tw="block md:hidden" />
     </HeaderContainer>
   )
 }
