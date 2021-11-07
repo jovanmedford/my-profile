@@ -8,8 +8,12 @@ export default function () {
     <HeaderContainer>
       <Logo tw="w-20" />
       <ul>
-        <a tw="hidden md:inline text-md mr-8">About Me</a>
-        <a tw="hidden md:inline text-md">Portfolio</a>
+        <a href="/#about-me" tw="hidden md:inline text-md mr-8">
+          About Me
+        </a>
+        <a href="/#portfolio" tw="hidden md:inline text-md">
+          Portfolio
+        </a>
       </ul>
       <ContactButton>Contact Me</ContactButton>
       <Bars tw="block md:hidden" />
@@ -20,7 +24,7 @@ export default function () {
 const xMargin = "mx-4 md:mx-12"
 
 const HeaderContainer = tw("header")`
-  ${xMargin} mt-12 mb-36
+  ${xMargin} mt-12 mb-40 max-w-4xl lg:mx-auto
   flex justify-between items-center
 `
 
