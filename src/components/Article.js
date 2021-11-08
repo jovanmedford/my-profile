@@ -1,20 +1,34 @@
 import React from "react"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { MDXProvider } from "@mdx-js/react"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import tw, { styled } from "twin.macro"
 import Layout from "./Layout"
 import { graphql } from "gatsby"
-export default ({ data, children }) => {
+export default ({ data: { mdx } }) => {
+  const image = getImage(mdx.frontmatter.featuredImage)
+  console.log(mdx)
   return (
     <Layout>
-      <ArticleContainer>{children}</ArticleContainer>
+      <h1 tw="mt-20 text-2xl font-bold text-center mb-8">
+        {mdx.frontmatter.title}
+      </h1>
+      <GatsbyImage
+        tw="w-11/12 md:w-8/12 lg:w-5/12 mx-auto"
+        image={image}
+        alt=""
+      />
+      <ArticleContainer>
+        <MDXProvider>
+          <MDXRenderer frontmatter={mdx.frontmatter}>{mdx.body}</MDXRenderer>
+        </MDXProvider>
+      </ArticleContainer>
     </Layout>
   )
 }
 
 const ArticleContainer = styled("div")`
   ${tw`mx-4 md:mx-auto md:w-8/12 max-w-2xl md:text-md`}
-  h1 {
-    ${tw`text-2xl font-bold text-center mb-8`}
-  }
 
   h2 {
     ${tw`text-lg font-bold mt-8 mb-1`}
@@ -25,7 +39,7 @@ const ArticleContainer = styled("div")`
   }
 
   p {
-    ${tw`my-4 md:my-8 md:leading-relaxed`}
+    ${tw`my-4 md:my-6 md:leading-relaxed`}
   }
 
   a {
@@ -34,12 +48,14 @@ const ArticleContainer = styled("div")`
 `
 
 export const query = graphql`
-  query {
-    allMdx {
-      edges {
-        node {
-          frontmatter {
-            title
+  query BlogPostQuery($id: String) {
+    mdx(id: { eq: $id }) {
+      body
+      frontmatter {
+        title
+        featuredImage {
+          childImageSharp {
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
       }
