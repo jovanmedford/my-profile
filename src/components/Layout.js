@@ -1,6 +1,7 @@
 import React from "react"
 import { GlobalStyles } from "twin.macro"
 import Header from "./header/Header"
+import { Footer } from "./footer/footer"
 
 export default function ({ children, ...rest }) {
   return (
@@ -8,6 +9,7 @@ export default function ({ children, ...rest }) {
       <GlobalStyles />
       <Header />
       {children}
+      <Footer />
     </div>
   )
 }
