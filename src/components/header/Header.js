@@ -15,7 +15,7 @@ export default function () {
           Portfolio
         </a>
       </ul>
-      <ContactButton>Contact Me</ContactButton>
+      <ContactButton href="/#contact">Contact Me</ContactButton>
     </HeaderContainer>
   )
 }

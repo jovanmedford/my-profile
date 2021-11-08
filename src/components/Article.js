@@ -45,6 +45,10 @@ const ArticleContainer = styled("div")`
   a {
     ${tw`text-primary-500 underline`}
   }
+
+  .video {
+    ${tw`w-full text-center`}
+  }
 `
 
 export const query = graphql`

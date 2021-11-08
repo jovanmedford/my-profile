@@ -2,13 +2,14 @@ import * as React from "react"
 import Seo from "../components/seo"
 import Layout from "../components/Layout"
 import { susuImage, caribbeanScholarImage } from "../utils/staticImages"
+import { Contact } from "../components/form/contact"
 import Card from "../components/Card"
 import tw, { styled } from "twin.macro"
 export default function () {
   return (
     <Layout>
       <Seo title="Jovan Medford" />
-      <div tw="mx-4">
+      <div tw="mt-40 mx-4">
         <h1 tw="text-3xl font-bold text-center">
           I design and build beautiful web apps.
         </h1>
@@ -20,12 +21,12 @@ export default function () {
         <div tw="mx-4 md:flex md:mx-12 lg:mx-auto justify-between max-w-4xl ">
           <Card
             tw="lg:w-6/12 mr-8"
-            to="/caribbean-scholar"
+            to="blog/caribbean-scholar"
             ImageComponent={caribbeanScholarImage}
             title="Caribbean Scholar"
           />
           <Card
-            to="/susumagazine"
+            to="blog/susumagazine"
             tw="lg:w-6/12"
             ImageComponent={susuImage}
             title="SUSU Magazine"
@@ -55,6 +56,17 @@ export default function () {
             Students a high quality option for their virtual self studies.
           </p>
         </TextContainer>
+      </section>
+
+      <section
+        id="contact"
+        tw="mt-20 pl-10 pb-10 text-base-color
+            mx-4 md:mx-12
+            lg:mx-auto max-w-4xl
+            md:pr-8 rounded-lg"
+      >
+        <h2 tw=" text-lg md:text-2xl font-bold mb-4">Say hi!</h2>
+        <Contact />
       </section>
     </Layout>
   )
